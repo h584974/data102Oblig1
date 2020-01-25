@@ -14,7 +14,7 @@ public class Fil {
 		while(true) {
 			String tempstring = leser.nextLine();
 			
-			if(tempstring == null) {
+			if(tempstring == null || tempstring.equals("")) {
 				break;
 			}
 			
