@@ -19,22 +19,22 @@ public class Fil {
 			}
 			
 			int filmnummeri = tempstring.indexOf(SKILLE);
-			int filmnummer = Integer.parseInt(tempstring.substring(0, filmnummeri - 1));
+			int filmnummer = Integer.parseInt(tempstring.substring(0, filmnummeri));
 			
 			int titteli = tempstring.indexOf(SKILLE, filmnummeri);
-			String tittel = tempstring.substring(filmnummeri, titteli - 1);
+			String tittel = tempstring.substring(filmnummeri + 1, titteli);
 			
 			int utgivelseaari = tempstring.indexOf(SKILLE, titteli);
-			int utgivelseaar = Integer.parseInt(tempstring.substring(titteli, utgivelseaari - 1));
+			int utgivelseaar = Integer.parseInt(tempstring.substring(titteli + 1, utgivelseaari));
 			
 			int sjangeri = tempstring.indexOf(SKILLE, utgivelseaari);
-			Sjanger sjanger = Sjanger.finnSjanger(tempstring.substring(utgivelseaari, sjangeri - 1));
+			Sjanger sjanger = Sjanger.finnSjanger(tempstring.substring(utgivelseaari + 1, sjangeri));
 			
 			int filmselskapi = tempstring.indexOf(SKILLE, sjangeri);
-			String filmselskap = tempstring.substring(sjangeri, filmselskapi - 1);
+			String filmselskap = tempstring.substring(sjangeri + 1, filmselskapi);
 			
 			int produsenti = tempstring.indexOf(SKILLE, filmselskapi);
-			String produsent = tempstring.substring(filmselskapi, produsenti - 1);	
+			String produsent = tempstring.substring(filmselskapi + 1, produsenti);	
 			
 			filmarkiv.leggTilFilm(new Film(filmnummer, produsent, tittel, utgivelseaar, sjanger, filmselskap));
 		}
