@@ -6,10 +6,6 @@ public interface FilmarkivADT {
 	
 	Film[] hentFilmTabell();
 	
-	int finnFilm(Film film);
-	
-	void utvidKapasitet();
-	
 	boolean leggTilFilm(Film nyfilm);
 	
 	boolean slettFilm(int filmnummer);
@@ -21,7 +17,5 @@ public interface FilmarkivADT {
 	int antallSjanger(Sjanger sjanger);
 	
 	int getAntall();
-	
-	static void forkortFilmTabell(Film[] filmer) {};
 
 }
