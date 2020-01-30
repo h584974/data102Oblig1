@@ -19,6 +19,7 @@ public class Meny {
 		
 		Scanner leser = new Scanner(System.in);
 		System.out.println("Hva ønsker du å gjøre? Skriv følgende for ønskede funksjoner:");
+		int svar = 1;
 		
 		while(true) {
 			System.out.println();
@@ -29,8 +30,6 @@ public class Meny {
 			System.out.println("Skriv ut filmer ut i fra produsent: 5");
 			System.out.println("Skriv ut film ut i fra tittel: 6");
 			System.out.println("Skriv ut alle filmer i akriv: 7");
-			
-			int svar = 1;
 			
 			try {
 				svar = Integer.parseInt(leser.nextLine());
@@ -43,7 +42,9 @@ public class Meny {
 			} else if(svar == 2) {
 				filmarkiv.leggTilFilm(Tekstgrensesnitt.lesFilm());
 			} else if(svar == 3) {
-				filmarkiv.slettFilm(Tekstgrensesnitt.lesFilm().getFilmnummer());
+				System.out.println("Skriv filmnummer:");
+				int filmnummer = Integer.parseInt(leser.nextLine());
+				filmarkiv.slettFilm(filmnummer);
 			} else if(svar == 4) {
 				Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
 			} else if(svar == 5) {
@@ -58,6 +59,14 @@ public class Meny {
 				Tekstgrensesnitt.skrivUtFilmTabell(filmarkiv.hentFilmTabell());
 			} else {
 				System.out.println("Ingen gyldig svar angitt\n");
+			}
+			
+			while(true) {
+				System.out.println("Skriv 0 for å gå videre");
+				int s = Integer.parseInt(leser.nextLine());
+				if(s == 0) {
+					break;
+				}
 			}
 		}
 		

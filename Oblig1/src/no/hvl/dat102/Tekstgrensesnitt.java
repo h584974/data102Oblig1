@@ -80,14 +80,18 @@ public class Tekstgrensesnitt {
 	
 	public static void visFilm(Film film) {
 		
-		String output = "Filmnummer" + String.format("%10d",film.getFilmnummer()) + "\n";
-		output += "Tittel:" + String.format("%30s", film.getTittel()) + "\n";
-		output += "Sjanger:" + String.format("%20s", film.getSjanger()) + "\n";
-		output += "År utgitt:" + String.format("%10d", film.getUtgivelseaar()) + "\n";
-		output += "Filmselskap:" + String.format("%30s", film.getFilmselskap()) + "\n";
-		output += "Produsent:" + String.format("%30s", film.getProdusent()) + "\n";
+		try {
+			String output = "Filmnummer" + String.format("%10d",film.getFilmnummer()) + "\n";
+			output += "Tittel:" + String.format("%30s", film.getTittel()) + "\n";
+			output += "Sjanger:" + String.format("%20s", film.getSjanger()) + "\n";
+			output += "År utgitt:" + String.format("%10d", film.getUtgivelseaar()) + "\n";
+			output += "Filmselskap:" + String.format("%30s", film.getFilmselskap()) + "\n";
+			output += "Produsent:" + String.format("%30s", film.getProdusent()) + "\n";
 		
-		System.out.println(output);
+			System.out.println(output);
+		} catch(NullPointerException e) {
+			System.out.println("NullPointerException, verdi for Film ikke funnet i Tekstgrensesnitt.visFilm");
+		}
 	}
 	
 }

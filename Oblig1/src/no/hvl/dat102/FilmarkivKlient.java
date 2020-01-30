@@ -8,11 +8,13 @@ public class FilmarkivKlient {
 		
 		Filmarkiv filmarkiv = new Filmarkiv(1);
 		
-		Film film = new Film(1,"OlliCo", "OogaBooga", 1999, Sjanger.FANTASI, "OlliCoAS");
-		
-		filmarkiv.leggTilFilm(film);
+		filmarkiv.leggTilFilm(new Film(1,"bitch", "bitch2", 1999, Sjanger.FANTASI, "hore"));
 		
 		Meny meny = new Meny(filmarkiv);
+		
+		meny.start();
+		
+		System.out.println("Program avsluttet");
 		
 	}
 }
