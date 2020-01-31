@@ -22,7 +22,13 @@ public class Filmarkiv implements FilmarkivADT {
 	
 	public void utvidKapasitet() {
 		
-		Film[] tempfilmliste = new Film[(int)(this.filmliste.length * 1.1)];
+		Film[] tempfilmliste;
+		
+		if(this.antall < 10) {
+			tempfilmliste = new Film[this.filmliste.length + 1];
+		} else {
+			tempfilmliste = new Film[(int)(this.filmliste.length * 1.1)];
+		}
 		
 		for(int i = 0; i < this.antall; i++) {
 			tempfilmliste[i] = this.filmliste[i];

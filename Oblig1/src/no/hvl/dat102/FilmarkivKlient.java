@@ -8,7 +8,7 @@ public class FilmarkivKlient {
 		
 		Filmarkiv filmarkiv = new Filmarkiv(1);
 		
-		filmarkiv.leggTilFilm(new Film(1,"bitch", "bitch2", 1999, Sjanger.FANTASI, "hore"));
+		filmarkiv.leggTilFilm(new Film(1,"produsent", "tittel", 1999, Sjanger.FANTASI, "Selskap"));
 		
 		Meny meny = new Meny(filmarkiv);
 		

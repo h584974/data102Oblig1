@@ -1,28 +1,24 @@
 package no.hvl.dat102;
 
-import no.hvl.dat102.adt.Filmarkiv;
 import no.hvl.dat102.adt.FilmarkivADT;
 import java.util.Scanner;
 import java.lang.NumberFormatException;
 
 public class Meny {
 	
-	private Tekstgrensesnitt tekstgr;
 	private FilmarkivADT filmarkiv;
 	
 	public Meny(FilmarkivADT filmarkiv) {
 		this.filmarkiv = filmarkiv;
-		tekstgr = new Tekstgrensesnitt();
 	}
 	
 	public void start()  {
 		
 		Scanner leser = new Scanner(System.in);
-		System.out.println("Hva ønsker du å gjøre? Skriv følgende for ønskede funksjoner:");
+		System.out.println("Hva ønsker du å gjøre? Skriv følgende for ønskede funksjoner:\n");
 		int svar = 1;
 		
 		while(true) {
-			System.out.println();
 			System.out.println("Avslutt: 1");
 			System.out.println("Legg til ny film i samling: 2");
 			System.out.println("Slett film fra samling: 3");
@@ -40,11 +36,17 @@ public class Meny {
 			if(svar == 1) {
 				break;
 			} else if(svar == 2) {
-				filmarkiv.leggTilFilm(Tekstgrensesnitt.lesFilm());
+				filmarkiv.leggTilFilm(Tekstgrensesnitt.lesFilm(leser));
+				System.out.println("Film lagt til");
 			} else if(svar == 3) {
 				System.out.println("Skriv filmnummer:");
 				int filmnummer = Integer.parseInt(leser.nextLine());
-				filmarkiv.slettFilm(filmnummer);
+				boolean slettet = filmarkiv.slettFilm(filmnummer);
+				if(slettet) {
+					System.out.println("Film slettet");
+				} else {
+					System.out.println("Film ikke funnet");
+				}
 			} else if(svar == 4) {
 				Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
 			} else if(svar == 5) {

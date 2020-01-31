@@ -21,17 +21,15 @@ public class Tekstgrensesnitt {
 		int antallDOKUMENTAR = filmarkiv.antallSjanger(Sjanger.DOKUMENTAR);
 		
 		System.out.println("-----------------------------------");
-		System.out.println("Antall filmer:" + String.format("%10d", antall));
-		System.out.println("Antall FANTASI:" + String.format("%10d", antallFANTASI));
-		System.out.println("Antall SCIFI:" + String.format("%10d", antallSCIFI));
-		System.out.println("Antall DOKUMENTAR:" + String.format("%10d", antallDOKUMENTAR));
+		System.out.println(String.format("%20s", "Antall filmer:") + "   " + String.format("%5d", antall));
+		System.out.println(String.format("%20s", "Antall FANTASI:") + "   " + String.format("%5d", antallFANTASI));
+		System.out.println(String.format("%20s", "Antall SCIFI:") + "   " + String.format("%5d", antallSCIFI));
+		System.out.println(String.format("%20s", "Antall DOKUMENTAR:") + "   " + String.format("%5d", antallDOKUMENTAR));
 		System.out.println("-----------------------------------");
 		
 	}
 	
-	public static Film lesFilm() {
-		
-		Scanner leser = new Scanner(System.in);
+	public static Film lesFilm(Scanner leser) {
 		
 		System.out.println("Skriv Filmnummer:");
 		int filmnummer = Integer.parseInt(leser.nextLine());
@@ -63,30 +61,30 @@ public class Tekstgrensesnitt {
 		System.out.println("Skriv produsent");
 		String produsent = leser.nextLine();
 		
-		leser.close();
+		Film film = new Film(filmnummer, produsent, tittel, utgivelseaar, sjanger, filmselskap);
 		
-		return new Film(filmnummer, produsent, tittel, utgivelseaar, sjanger, filmselskap);
+		return film;
 		
 	}
 	
 	public static void skrivUtFilmTabell(Film[] filmer) {
 		
-		System.out.println("-----------------------------------");
+		System.out.println("----------------------------------------");
 		for(Film i : filmer) {
 			visFilm(i);
-			System.out.println("-----------------------------------");
+			System.out.println("----------------------------------------");
 		}
 	}
 	
 	public static void visFilm(Film film) {
 		
 		try {
-			String output = "Filmnummer" + String.format("%10d",film.getFilmnummer()) + "\n";
-			output += "Tittel:" + String.format("%30s", film.getTittel()) + "\n";
-			output += "Sjanger:" + String.format("%20s", film.getSjanger()) + "\n";
-			output += "År utgitt:" + String.format("%10d", film.getUtgivelseaar()) + "\n";
-			output += "Filmselskap:" + String.format("%30s", film.getFilmselskap()) + "\n";
-			output += "Produsent:" + String.format("%30s", film.getProdusent()) + "\n";
+			String output = String.format("%15s", "Filmnummer") + String.format("%25d",film.getFilmnummer()) + "\n";
+			output += String.format("%15s", "Tittel:") + String.format("%25s", film.getTittel()) + "\n";
+			output += String.format("%15s", "Sjanger:") + String.format("%25s", film.getSjanger()) + "\n";
+			output += String.format("%15s", "År utgitt:") + String.format("%25d", film.getUtgivelseaar()) + "\n";
+			output += String.format("%15s", "Filmselskap:") + String.format("%25s", film.getFilmselskap()) + "\n";
+			output += String.format("%15s", "Produsent:") + String.format("%25s", film.getProdusent()) + "\n";
 		
 			System.out.println(output);
 		} catch(NullPointerException e) {
