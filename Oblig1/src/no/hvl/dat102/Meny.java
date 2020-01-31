@@ -64,11 +64,13 @@ public class Meny {
 			}
 			
 			while(true) {
-				System.out.println("Skriv 0 for å gå videre");
-				int s = Integer.parseInt(leser.nextLine());
-				if(s == 0) {
-					break;
-				}
+				try {
+					System.out.println("Skriv 0 for å gå videre");
+					int s = Integer.parseInt(leser.nextLine());
+					if(s == 0) {
+						break;
+					}
+				} catch(NumberFormatException e) {}
 			}
 		}
 		

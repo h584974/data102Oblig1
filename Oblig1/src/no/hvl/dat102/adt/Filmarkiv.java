@@ -39,7 +39,7 @@ public class Filmarkiv implements FilmarkivADT {
 	
 	public static void forkortFilmTabell(Film[] filmer) {
 		
-		int indeks = 0;
+		int indeks = -1;
 		
 		for(int i = 0; i < filmer.length; i++) {
 			if(filmer[i] == null) {
@@ -48,13 +48,16 @@ public class Filmarkiv implements FilmarkivADT {
 			}
 		}
 		
-		Film[] tempfilmer = new Film[indeks];
 		
-		for(int i = 0; i < tempfilmer.length; i++) {
-			tempfilmer[i] = filmer[i];
+		if(indeks > -1) {
+			Film[] tempfilmer = new Film[indeks];
+			
+			for(int i = 0; i < tempfilmer.length; i++) {
+				tempfilmer[i] = filmer[i];
+			}
+			
+			filmer = tempfilmer;
 		}
-		
-		filmer = tempfilmer;
 		
 	}
 	

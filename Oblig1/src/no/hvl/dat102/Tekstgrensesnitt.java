@@ -84,7 +84,7 @@ public class Tekstgrensesnitt {
 			output += String.format("%15s", "Sjanger:") + String.format("%25s", film.getSjanger()) + "\n";
 			output += String.format("%15s", "År utgitt:") + String.format("%25d", film.getUtgivelseaar()) + "\n";
 			output += String.format("%15s", "Filmselskap:") + String.format("%25s", film.getFilmselskap()) + "\n";
-			output += String.format("%15s", "Produsent:") + String.format("%25s", film.getProdusent()) + "\n";
+			output += String.format("%15s", "Produsent:") + String.format("%25s", film.getProdusent());
 		
 			System.out.println(output);
 		} catch(NullPointerException e) {
