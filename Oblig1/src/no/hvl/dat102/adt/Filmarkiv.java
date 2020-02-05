@@ -48,7 +48,6 @@ public class Filmarkiv implements FilmarkivADT {
 			}
 		}
 		
-		
 		if(indeks > -1) {
 			Film[] tempfilmer = new Film[indeks];
 			
